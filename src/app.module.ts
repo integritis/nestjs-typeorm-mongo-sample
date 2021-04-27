@@ -4,6 +4,8 @@ import { AppService } from './app.service'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { PostsController } from './posts/posts.controller'
 import { Post } from './posts/post.entity'
+import { UsersController } from './user/users.controller'
+import { User } from './user/user.entity'
 
 @Module({
   imports: [
@@ -16,9 +18,9 @@ import { Post } from './posts/post.entity'
       useUnifiedTopology: true,
       useNewUrlParser: true,
     }),
-    TypeOrmModule.forFeature([Post]),
+    TypeOrmModule.forFeature([Post, User]),
   ],
-  controllers: [AppController, PostsController],
+  controllers: [AppController, PostsController, UsersController],
   providers: [AppService],
 })
 export class AppModule {}
